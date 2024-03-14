@@ -36,6 +36,8 @@ requirements:
     - pytorch
     - pip
     - cuda-cudart-dev  # [(cuda_compiler_version or "").startswith("12")]
+    # see https://github.com/conda-forge/linux-sysroot-feedstock/issues/52
+    - libxcrypt  # [linux and py<39]
   run:
     - python
     - pytorch
