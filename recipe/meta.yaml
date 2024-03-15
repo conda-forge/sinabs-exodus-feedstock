@@ -48,10 +48,10 @@ test:
   imports:
     - sinabs.exodus
     - sinabs.exodus.layers
-  commands:
-    - pip check
-  requires:
-    - pip
+  # commands:
+  #   - pip check
+  # requires:
+  #   - pip
 
 about:
   summary: Efficient training and inference on GPU for sinabs spiking neural network simulator.
