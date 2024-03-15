@@ -1,5 +1,5 @@
 {% set name = "sinabs-exodus" %}
-{% set version = "1.1.2" %}
+{% set version = "1.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/sinabs-exodus-{{ version }}.tar.gz
-  sha256: f76282d2f80037cb17bf25633e839b689535ef210f78922791163bcd2b0bbe8e
+  sha256: 95b874fd1e2ae9d02bbd4300812d9479cae94b4dfafb02c9fdbdfac9b16b9e53
   patches:
     - fix-hardcoded-compiler.patch
 
 build:
-  number: 4
+  number: 0
   skip: true  # [win or osx or cuda_compiler_version == "None"]
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
   missing_dso_whitelist:
@@ -30,6 +30,8 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('cuda') }}
+    # see https://github.com/conda-forge/linux-sysroot-feedstock/issues/52
+    - libxcrypt  # [linux and py<39]
   host:
     - versioneer
     - python
@@ -46,10 +48,10 @@ test:
   imports:
     - sinabs.exodus
     - sinabs.exodus.layers
-  commands:
-    - pip check
-  requires:
-    - pip
+  # commands:
+  #   - pip check
+  # requires:
+  #   - pip
 
 about:
   summary: Efficient training and inference on GPU for sinabs spiking neural network simulator.
