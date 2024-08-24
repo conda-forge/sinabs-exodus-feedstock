@@ -38,6 +38,7 @@ requirements:
     - python
     - pytorch
     - pip
+    - setuptools
     - cuda-cudart-dev  # [(cuda_compiler_version or "").startswith("12")]
   run:
     - python
