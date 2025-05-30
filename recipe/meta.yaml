@@ -12,7 +12,7 @@ source:
     - fix-hardcoded-compiler.patch
 
 build:
-  number: 6
+  number: 7
   skip: true  # [win or osx or cuda_compiler_version == "None" or cuda_compiler_version == "11.8"]
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
   missing_dso_whitelist:
