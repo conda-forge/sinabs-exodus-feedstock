@@ -1,5 +1,5 @@
 {% set name = "sinabs-exodus" %}
-{% set version = "1.2.1" %}
+{% set version = "2.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/sinabs-exodus-{{ version }}.tar.gz
-  sha256: 95b874fd1e2ae9d02bbd4300812d9479cae94b4dfafb02c9fdbdfac9b16b9e53
+  sha256: 4d4e61da73aa7031a0b6be030afb9035a120b15dacfa9e034ff18006cefd37a5
   patches:
     - fix-hardcoded-compiler.patch
 
 build:
-  number: 9
+  number: 0
   skip: true  # [win or osx or cuda_compiler_version == "None" or cuda_compiler_version == "11.8"]
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
   missing_dso_whitelist:
