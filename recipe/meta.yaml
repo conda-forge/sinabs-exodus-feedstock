@@ -31,6 +31,7 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ compiler('cuda') }}
+    - cuda-version {{ cuda_compiler_version }}
   host:
     - versioneer
     - python
@@ -38,11 +39,11 @@ requirements:
     - pip
     - setuptools
     - cuda-cudart-dev
+    - cuda-version {{ cuda_compiler_version }}
   run:
     - python
     - pytorch
     - sinabs
-    - __cuda
 
 test:
   imports:
