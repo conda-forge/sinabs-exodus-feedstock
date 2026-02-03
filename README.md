@@ -82,6 +82,13 @@ Current build status
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/sinabs-exodus-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_c_stdlib_version2.28cuda_compiler_version13.0python3.13.____cp313" alt="variant">
                 </a>
               </td>
+            </tr><tr>
+              <td>linux_64_cuda_compiler_version12.9python3.14.____cp314</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=20879&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/sinabs-exodus-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_version12.9python3.14.____cp314" alt="variant">
+                </a>
+              </td>
             </tr>
           </tbody>
         </table>
