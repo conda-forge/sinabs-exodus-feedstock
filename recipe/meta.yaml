@@ -12,8 +12,8 @@ source:
     - fix-hardcoded-compiler.patch
 
 build:
-  number: 3
-  skip: true  # [win or osx or cuda_compiler_version == "None" or cuda_compiler_version == "11.8"]
+  number: 4
+  skip: true  # [win or osx or cuda_compiler_version == "None"]
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
   missing_dso_whitelist:
     # pytorch builds put the libs in the wrong place, but hard to unbundle, see
@@ -31,20 +31,19 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ compiler('cuda') }}
-    # see https://github.com/conda-forge/linux-sysroot-feedstock/issues/52
-    - libxcrypt  # [linux and py<39]
+    - cuda-version {{ cuda_compiler_version }}
   host:
     - versioneer
     - python
     - pytorch
     - pip
     - setuptools
-    - cuda-cudart-dev  # [(cuda_compiler_version or "").startswith("12")]
+    - cuda-cudart-dev
+    - cuda-version {{ cuda_compiler_version }}
   run:
     - python
     - pytorch
     - sinabs
-    - __cuda
 
 test:
   imports:
