@@ -43,7 +43,7 @@ requirements:
   run:
     - python
     - pytorch
-    - sinabs
+    - sinabs >=1.2.9
     - numpy <2
 
 test:
