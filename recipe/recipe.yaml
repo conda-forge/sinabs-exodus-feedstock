@@ -41,13 +41,14 @@ requirements:
     - versioneer
     - python
     - pytorch
+    - pytorch * [build=cuda*]
     - pip
     - setuptools
     - cuda-cudart-dev
     - cuda-version ${{ cuda_compiler_version }}.*
   run:
     - python
-    - pytorch
+    - pytorch * [build=cuda*]
     - sinabs >=3
     - numpy
 
@@ -66,4 +67,3 @@ about:
 extra:
   recipe-maintainers:
     - Tobias-Fischer
-
