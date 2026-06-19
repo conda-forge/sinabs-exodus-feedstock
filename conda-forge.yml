@@ -4,7 +4,7 @@ github:
 conda_build:
   error_overlinking: true
 conda_forge_output_validation: true
-azure: 
+workflow_settings: 
   free_disk_space: true
 conda_build_tool: rattler-build
 conda_install_tool: pixi
