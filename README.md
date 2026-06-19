@@ -146,6 +146,3 @@ Feedstock Maintainers
 
 * [@Tobias-Fischer](https://github.com/Tobias-Fischer/)
 
-
-<!-- dummy commit to enable rerendering -->
-
