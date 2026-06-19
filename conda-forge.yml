@@ -5,6 +5,6 @@ conda_build:
   error_overlinking: true
 conda_forge_output_validation: true
 workflow_settings: 
-  free_disk_space: true
+  free_disk_space: quick
 conda_build_tool: rattler-build
 conda_install_tool: pixi
