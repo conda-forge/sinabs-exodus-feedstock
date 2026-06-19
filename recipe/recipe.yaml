@@ -48,7 +48,7 @@ requirements:
     - cuda-version ${{ cuda_compiler_version }}.*
   run:
     - python
-    - pytorch * [build=cuda*]
+    - pytorch
     - sinabs >=3
     - numpy
 
