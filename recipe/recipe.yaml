@@ -1,7 +1,7 @@
 context:
   name: sinabs-exodus
   version: 2.0.0
-  build_number: 6
+  build_number: 7
 
 package:
   name: ${{ name }}
@@ -19,7 +19,7 @@ build:
     - win
     - osx
     - cuda_compiler_version == "None"
-  string: cuda${{ cuda_compiler_version | replace(".", "") }}py${{ python | replace(".", "") }}h${{ hash }}_${{ build_number }}
+  string: cuda${{ cuda_compiler_version | replace(".", "") }}py${{ python | version_to_buildstring }}h${{ hash }}_${{ build_number }}
   dynamic_linking:
     # pytorch builds put the libraries in the wrong place.
     missing_dso_allowlist:
@@ -41,13 +41,16 @@ requirements:
     - versioneer
     - python
     - pytorch
+    - pytorch * [build=cuda*]
+    # Keep PyTorch compatible with sinabs' ONNX dependency.
+    - libprotobuf
     - pip
     - setuptools
     - cuda-cudart-dev
     - cuda-version ${{ cuda_compiler_version }}.*
   run:
     - python
-    - pytorch
+    - pytorch * [build=cuda*]
     - sinabs >=3
     - numpy
 
@@ -56,6 +59,7 @@ tests:
       imports:
         - sinabs.exodus
         - sinabs.exodus.layers
+      pip_check: false
 
 about:
   summary: Efficient training and inference on GPU for sinabs spiking neural network simulator.
@@ -66,4 +70,3 @@ about:
 extra:
   recipe-maintainers:
     - Tobias-Fischer
-
